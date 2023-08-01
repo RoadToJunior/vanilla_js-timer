@@ -55,13 +55,17 @@ const startStopwatch = () => {
   }
 };
 
+const resetStopwatch = () => {
+  flag = false;
+  mainButton.textContent = "Start";
+  clearInterval(intervalID);
+  display.textContent = "---";
+};
+
 const start = () => {
   time++;
   display.textContent = (time / 100).toFixed(2);
 };
 
 mainButton.addEventListener("click", startStopwatch);
-resetButton.addEventListener("click", () => {
-  clearInterval(interval);
-  display.textContent = "---";
-});
+resetButton.addEventListener("click", resetStopwatch);
